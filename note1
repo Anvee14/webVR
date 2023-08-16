@@ -1,0 +1,62 @@
+1.Enitities-Entities are container objects into which components can be attached, 
+similar to <div> tags.
+
+2.Components are reusable modules or data containers that can be attached
+to entities to provide appearance, behavior, and/or functionality.
+
+3.A-Frame entity is represented by <a-entity> tag.
+
+4.Entity can be used to control the behavior and functionalities of the 
+A-Frame component like positions, shape, animations.
+
+5.Without any components, the entity does not have any functionality of its own.
+
+6.We can mention the “property” we want to animate and set different attributes for that property 
+such as “from”, “to”, “dur”, “easing”, “loop” etc. ,to animate the entity.
+
+7.property: Property to animate, it can be component name, 
+property of any component,or just an attribute.
+
+8.from: The initial value of the property, if not specified the current 
+property value of the entity will be used.
+
+9.to: The final/target value of the property at the end of animation.
+
+10.dur: Duration of the animation cycle i.e. for how long each animation will be executed.
+ The duration is mentioned in milliseconds. Default value is 1000 milliseconds(1 sec= 1000 milliseconds).
+
+11.easing: It is a timing function, which can be used to change the animation 
+speed per animation cycle. Default value is “easeInQuad”.
+
+12.loop: How many loops(number) i.e. many times the animation should repeat,
+if the value i strue, the animation will repeat infinitely
+
+13.arc: This attribute sets the arc length of the tube. Default value is 360 degrees, 
+a complete circular tube. 
+
+14.radius: This attribute sets the radius of the tube. 
+
+14.radius-tubular: This attribute sets the thickness of the tube. 
+
+15.segments-tubular: This attribute sets the number of segments the tube is made of. 
+Default value is 32 segments.
+
+16.<a-scene> represents the system in A-Frame which globally manages all entities and its components.
+
+17.AFRAME.registerComponent (name, definition)
+   name: is the component name; it is of string data type. Here ‘box’ is the name of the component.
+
+18.definition: contains the component definition. It is a JavaScript object which has schema and lifecycle handler methods(init, update, tick, remove etc)
+
+19.schema: is an object that defines the property names, its types and default values. Schema defines the shape of the data.
+ 
+Life Cycle handler methods:-
+init: is used to set up the initial state. It is called once when the component is initialized.
+update: is used to modify the entity.
+remove: is used to undo all previous modifications to the entity.
+tick: is used for checking continuous changes. It is called on every render loop of the scene.
+this.el.getAttribute(): to get the current values of the position attribute
+this.el.setAttribute(): to set the updated value of the position attribute.
+
+querySelector() function helps to select the particular entity element once the id is given to the entities.
+createElement() which will help us in creating the new entity

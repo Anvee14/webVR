@@ -1,0 +1,11 @@
+Model Information:
+* title:	Roman coin
+* source:	https://sketchfab.com/3d-models/roman-coin-6e33bbfe24784bbbad0314bbbb619bda
+* author:	Serafim123 (https://sketchfab.com/Serafim123)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Roman coin" (https://sketchfab.com/3d-models/roman-coin-6e33bbfe24784bbbad0314bbbb619bda) by Serafim123 (https://sketchfab.com/Serafim123) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

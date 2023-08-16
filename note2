@@ -1,0 +1,29 @@
+to get the direction of the camera element we can use the .getWorldDirection(vectorVariable) method defined in Three.js.
+camera.getWorldDirection(direction), will set the value of the vector given by the method in the direction variable.
+
+preset- This is used to set the environment type and valid values are none, default, contact, egypt, checkerboard, forest, goaland, yavapai, goldmine, threetowers, poison, arches, tron, japan, dream, volcano, starry, osiris. 
+
+skyType- This is used to set the type of sky element and valid values are color, gradient, atmosphere. 
+
+skyColor- This can be used to set the color of the sky element when the skyType is set color or gradient. 
+
+lighting- This is used to set up the lighting in the environment and the valid values are none, distant, point.
+
+Vectors are mathematical objects which have magnitude and direction.
+
+The direction tells in which direction the vector will be starting from the origin that is (0 0 0).
+
+The magnitude value tells how long the length will be starting from one point to another.
+
+The length of 1 unit is the standard length of the vectors which is known as the unit vector.
+
+a logarithmic depth buffer provides more accuracy for objects near the camera.
+
+NFT stands for natural feature tracking. This is a technology which helps to create image trackers.
+
+● src: the file path to video; 
+● preload: whether to preload the video content before rendering the scene;
+● loop: whether to play the video again and again; 
+● playsinline and webkit-playsinline: to play the video right where it is and avoid video to play in full screen mode; and 
+● crossorigin: sets the Cross-Origin Resource Sharing permission to share the information on the web browser. The crossorigin attribute is valid on the <audio>, <img>, <link>, <script>, and <video> elements.
+

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Paintball</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
+    <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
+    <script
+        src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+
+    <script src="./js/paintball.js"></script>
+    <script src="./js/playerMovement.js"></script>
+
+</head>
+
+<body>
+    <a-scene id="scene">
+        <a-assets>
+            <a-asset-item id="shooter" src="./models/soldier/scene.gltf"></a-asset-item>
+            <a-asset-item id="collider" src="./models/scene.gltf"></a-asset-item>
+            <audio id="shoot" src="./sounds/splash.mp3"></audio>
+            <audio id="footstep" src="./sounds/footStep.mp3"></audio>
+        </a-assets>
+
+        <a-entity id="environment" environment="preset:default;skyType:gradient;lighting:point"></a-entity>
+
+        <!--Camera and Cursor
+        <a-entity id="camera-rig" movement-controls="speed: 0.5; constrainToNavMesh: true" position="0 0 5">-->
+        <a-entity id="camera" camera position="0 1.6 0" look-controls="pointerLockEnabled: false">
+            <a-entity id="weapon" gltf-model="#shooter" position="0.17 -2.76 -0.08" rotation="-20 -145 20"
+                scale="0.05 0.05 0.05" player-movement>
+            </a-entity>
+            <a-cursor></a-cursor>
+        </a-entity>
+        <!--   </a-entity>-->
+
+        <a-entity bullets="position:0 0 -5"></a-entity>
+
+        <a-entity id="sound1" sound="src: #shoot; poolSize:2; autoplay: false; volume: 10;loop:false"></a-entity>
+        <a-entity id="sound2" sound="src: #footstep; poolSize:2;autoplay: false; volume: 10;loop:false"></a-entity>
+
+        <!--Left wall-->
+        <a-box id="right-wall" material="color: #34548d" color="red" repeat="10 1 1" position="15 5 -15"
+            rotation="0 -90 0" height="10" width="30" depth="1" static-body visible="true">
+        </a-box>
+        <!--Right wall-->
+        <a-box id="left-wall" material="color: #34548d" color="red" position="-15 5 -15" rotation="0 90 0" height="10"
+            width="30" depth="1" static-body visible="true">
+        </a-box>
+
+        <!--Back wall-->
+        <a-box id="back-wall" material="color: #34548d" color="red" position="0 5 -30" rotation="0 0 0" height="10"
+            width="30" depth="1" static-body visible="true">
+        </a-box>
+        <a-entity>
+            <a-plane id="wall0" material="color:yellow" geometry="height: 2.5; width: 5" position="-5 1 -5" static-body
+                visible="true">
+            </a-plane>
+            <a-plane id="wall1" material="color:yellow" geometry="height: 2.5; width: 5" position="5 1 -5" static-body
+                visible="true">
+            </a-plane>
+            <a-plane id="wall2" material="color:blue" geometry="height: 2.5; width: 5" position="0 1 -10" static-body
+                visible="true">
+            </a-plane>
+            <a-plane id="wall3" material="color:yellow" geometry="height: 2.5; width: 5" position="-5 1 -15" static-body
+                visible="true">
+            </a-plane>
+            <a-plane id="wall4" material="color:yellow" geometry="height: 2.5; width: 5" position="5 1 -15" static-body
+                visible="true">
+            </a-plane>
+        </a-entity>
+        <!--Ground-->
+        <a-plane id="ground" repeat="200 200" position="0 0 0" rotation="-90 0 0" height="200" width="200" static-body
+            visible="false">
+        </a-plane>
+        <!-- Navigation Mesh -->
+        <!--  <a-entity id="navigation-mesh" position="0 -1 0" gltf-model="#collider" visible="false" nav-mesh>
+        </a-entity>-->
+
+
+
+    </a-scene>
+
+</body>
+
+</html>

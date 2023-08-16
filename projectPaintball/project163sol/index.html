@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Paintball</title>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+  <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
+
+  <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+
+  <script src="./shoot.js"></script>
+  <script src="./playerMovement.js"></script>
+
+</head>
+
+<body>
+  <a-scene id="scene" physics="debug:false">
+
+    <!--Assets-->
+    <a-assets>
+      <a-asset-item id="shooter" src="./models/soldier/scene.gltf"></a-asset-item>
+
+      <!-- <img id="wallTexture" src="./images/wall2.jpg"> -->
+      <audio id="shoot" src="./sounds/splash.mp3"></audio>
+      <audio id="footstep" src="./sounds/footStep.mp3"></audio>
+
+    </a-assets>
+
+    <!--A-Frame Environment-->
+    <a-entity id="environment" environment="preset:default; skyType:gradient; lighting:point">
+    </a-entity>
+
+    <!--
+      A-Frame Environment preset values to choose from:
+
+      none, default, contact, egypt, checkerboard, forest,
+      goaland, yavapai, goldmine, threetowers, poison, arches,
+      tron, japan, dream, volcano, starry, osiris
+    
+    -->
+
+    <!--Sounds-->
+    <a-entity id="sound1" sound="src: #shoot; poolSize:2; autoplay: false; volume: 1;loop:false"></a-entity>
+    <a-entity id="sound2" sound="src: #footstep; poolSize:2;autoplay: false; volume: 4;loop:false"></a-entity>
+
+
+    <!--Light-->
+    <a-entity light="type: ambient; color: white; intensity:0.5"></a-entity>
+    <a-entity light="type: directional; color: #EEE; intensity: 1" position="-1 1 0"></a-entity>
+
+    <!--Camera and Cursor-->
+    <a-entity id="camera" camera position="0 1.6 0" wasd-controls="acceleration:500"
+      look-controls="pointerLockEnabled: false">
+      <a-entity id="weapon" gltf-model="#shooter" position="0 -2.6 -0.2" rotation="-20 -145 20" scale="0.05 0.05 0.05"
+        player-movement>
+      </a-entity>
+      <a-cursor></a-cursor>
+    </a-entity>
+
+    <!--Bullets-->
+    <a-entity bullets="position:0 0 -5"></a-entity>
+
+    <!--Ground-->
+    <a-plane id="ground" repeat="200 200" position="0 0 0" rotation="-90 0 0" height="200"
+      width="200" static-body visible="false">
+    </a-plane>
+
+    <!--Left wall-->
+    <a-box id="right-wall" material="color: #34548d" color="red" repeat="10 1 1" position="25 5 -15" rotation="0 -90 0"
+      height="10" width="50" depth="1" static-body visible="true">
+    </a-box>
+    <!--Right wall-->
+    <a-box id="left-wall" material="color: #34548d" color="red" repeat="10 1 1" position="-25 5 -15" rotation="0 90 0"
+      height="10" width="50" depth="1" static-body visible="true">
+    </a-box>
+
+    <!--Back wall-->
+    <a-box id="back-wall" material="color: #34548d" color="red" repeat="10 1 1" position="0 5 -40" rotation="0 0 0"
+      height="10" width="50" depth="1" static-body visible="true">
+    </a-box>
+
+    <!--Paintball Arena Walls-->
+    <a-entity>
+      <a-plane src="#wallTexture" id="wall1" material="color: " geometry="height: 2.5; width: 25"
+        position="8.24437 1.25 -16.52437" rotation="0 45 0" static-body visible="true">
+      </a-plane>
+
+      <a-plane src="#wallTexture" id="wall2" material="color: #d7b237" geometry="height: 2.5; width: 5"
+        position="10.21506 1.25 -5" rotation="0 0 0" static-body visible="true">
+      </a-plane>
+
+
+      <a-plane src="#wallTexture" id="wall3" material="color: #82c530" geometry="height: 2.5; width: 25"
+        position="-11.38094 1.25 -20.66105" rotation="0 -45 0" static-body visible="true">
+      </a-plane>
+
+
+      <a-plane src="#wallTexture" id="wall4" material="color: #118d6e" geometry="height: 2.5; width: 10"
+        position="-22.38153 1.25 -14.23461" rotation="0 80 0" static-body visible="true">
+      </a-plane>
+
+      <a-plane src="#wallTexture" id="wall5" material="color: #dd472c" geometry="height: 2.5; width: 25"
+        position="-2.32225 1.25 -17.62905" rotation="0 45 0" static-body visible="true">
+      </a-plane>
+
+      <a-plane src="#wallTexture" id="wall6" geometry="height: 2.5; width: 15" material="color: #97281c"
+        position="11.94046 1.25 -13.53126" rotation="0 -45 0" static-body visible="true">
+      </a-plane>
+
+      <a-plane src="#wallTexture" id="wall7" material="color: #5d1b6f" geometry="height: 2.5; width: 10"
+        position="-18.75634 1.25 -5" rotation="0 0 0" static-body visible="true">
+      </a-plane>
+
+
+      <a-plane src="#wallTexture" id="wall8" material="color: #56c0c8" geometry="height: 2.5; width: 5"
+        position="-8.81825 1.25 -5" rotation="0 0 0" static-body visible="true">
+      </a-plane>
+
+
+      <a-plane src="#wallTexture" id="wall9" material="color: #141a29" geometry="width: 10; height: 2.5"
+        position="0.73118 1.25 -5" rotation="0 0 0" static-body visible="true">
+      </a-plane>
+
+
+      <a-plane src="#wallTexture" id="wall10" material="color: #dd4808" geometry="height: 2.5; width: 10"
+        position="19.55681 1.25 -5.44811" rotation="0 0 0" static-body visible="true">
+      </a-plane>
+
+
+      <a-plane src="#wallTexture" id="wall11" material="color: #18cd58" geometry="height: 20; width: 5"
+        position="-5.9715 3.07167 -36.51578" rotation="-70 -90 0" static-body visible="true">
+      </a-plane>
+
+
+      <a-plane src="#wallTexture" id="wall12" material="color: #ed3535" geometry="height: 2.5; width: 30"
+        position="11.96826 1.25 -23.76773" rotation="0 -45 0" static-body visible="true">
+      </a-plane>
+
+
+      <a-plane src="#wallTexture" id="wall13" material="color: #5d1b6f" geometry="height: 2.5; width: 25"
+        position="-5.67949 1.25 -25.52097" rotation="0 45 0" static-body visible="true">
+      </a-plane>
+
+      <a-plane src="#wallTexture" id="wall14" material="color: #d7b237" geometry="width: 15; height: 2.5"
+        position="-16.3989 1.25 -14.04311" rotation="0 -45 0" static-body visible="true">
+      </a-plane>
+
+
+      <a-plane src="#wallTexture" id="wall15" geometry="height: 2.5; width: 5" material="color: #f335a4"
+        position="-22.07391 1.25 -26.45369" rotation="0 0 0" static-body visible="true">
+      </a-plane>
+
+      <a-plane src="#wallTexture" id="wall16" material="color: #18cd58" geometry="width: 20; height: 5"
+        position="13.32084 6.5801 -36.49324" rotation="-90 0 0" static-body visible="true">
+      </a-plane>
+
+      <a-plane src="#wallTexture" id="wall17" material="color: #18cd58" geometry="height: 10; width: 5"
+        position="20.94055 3.2736 -30.76395" rotation="-50 0 0" static-body visible="true">
+      </a-plane>
+
+    </a-entity>
+
+
+
+
+  </a-scene>
+</body>
+
+</html>

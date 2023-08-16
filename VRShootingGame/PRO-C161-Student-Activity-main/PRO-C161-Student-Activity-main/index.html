@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shooting Game in Virtual Reality</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>   
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="js/shoot.js"></script>
+    <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js" ></script>
+  </head>
+  <body>
+    <a-scene id="scene">
+
+      <!--Assets-->
+      <a-assets>
+      <a-assets-item id = "shooter" src="./models/shooter/gun.gltf"/>
+      </a-assets>
+
+      <a-entity id="environment" environment="preset:volcano;skyType:gradient;lighting:point">
+      </a-entity>
+      
+      <!--Light-->
+      <a-entity light="type: ambient; color: yellow; intensity:0.5"></a-entity>
+
+      <!--Camera and Cursor-->
+      <a-entity
+        id="camera"
+        camera
+        position="0 1.6 0"
+        wasd-controls
+        look-controls="pointerLockEnabled: false"        
+      >
+      <a-entity id="weapon" gltf-model="#shooter" position="0 -4.4 3" rotation="0 180 0" scale="0.35 1">
+      </a-entity>
+        <a-cursor></a-cursor>        
+      </a-entity>
+     
+      
+
+      <!--Bullets-->
+      <a-entity bullets></a-entity>
+     
+      <!--Ground-->
+      <a-plane
+        id="ground"
+        repeat="5 5"
+        position="0 -0.1 0"
+        rotation="-90 0 0"
+        height="200"
+        width="1000"
+        color="#FBF2D4"
+        static-body
+        visible="true"
+      >
+      </a-plane>
+
+      <!--Boxes-->
+      <a-box id="box1" position="-2 1.5 -10" color="black" depth="1" height="1" width="1.2" dynamic-body></a-box>
+
+      <a-box id="box2" position="0 1.5 -10" color="black" depth="1" height="1" width="1.2" dynamic-body></a-box>
+
+      <a-box id="box3" position="2 1.5 -10" color="black" depth="1" height="1" width="1.2" dynamic-body></a-box>
+
+      <a-box id="box4" position="-1 2.5 -10" color="black" depth="1" height="1" width="1.2" dynamic-body></a-box>
+
+      <a-box id="box5" position="1 2.5 -10" color="black" depth="1" height="1" width="1.2" dynamic-body></a-box>
+
+      <a-box id="box6"position="0 3.5 -10" color="black" depth="1" height="1" width="1.2" dynamic-body></a-box>
+
+      <!--Walls-->
+      <a-box color="#1469C9" id="wall1" position="-20 1.5 -20" depth="1" height="50" width="10" static-body></a-box> 
+      <a-box color="#1469C9" id="wall2" position="0 1.5 -20" depth="1" height="50" width="10" static-body></a-box>
+      <a-box color="#1469C9" id="wall3" position="20 1.5 -20" depth="1" height="50" width="10" static-body></a-box> 
+      <a-box color="#1469C9" id="wall4" position="-10 1.5 -20" depth="1" height="50" width="10" opacity="0.5"></a-box>
+      <a-box color="#1469C9" id="wall5" position="10 1.5 -20" depth="1" height="50" width="10" opacity="0.5"></a-box> 
+      <a-box color="#1469C9" id="wall6" position="-30 1.5 -20" depth="1" height="50" width="10" opacity="0.5"></a-box>
+      <a-box color="#1469C9" id="wall7" position="30 1.5 -20" depth="1" height="50" width="10" opacity="0.5"></a-box>
+
+    </a-scene>
+  </body>
+</html>
